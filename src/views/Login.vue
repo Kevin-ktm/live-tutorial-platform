@@ -51,15 +51,6 @@
                 {{ loading ? '登录中...' : '登录' }}
               </el-button>
             </el-form-item>
-
-            <div class="demo-account">
-              <p class="demo-title">演示账号</p>
-              <p class="demo-info">
-                <span>邮箱：demo@example.com</span>
-                <span>密码：demo123</span>
-              </p>
-              <el-button type="text" @click="useDemoAccount"> 使用演示账号登录 </el-button>
-            </div>
           </el-form>
 
           <div class="register-link">
@@ -152,12 +143,6 @@ const handleLogin = async () => {
   } finally {
     loading.value = false
   }
-}
-
-const useDemoAccount = () => {
-  loginForm.value.email = 'demo@example.com'
-  loginForm.value.password = 'demo123'
-  handleLogin()
 }
 
 // 检查是否已登录
@@ -254,29 +239,6 @@ onMounted(() => {
 .login-button:hover {
   opacity: 0.9;
   transform: translateY(-2px);
-}
-
-.demo-account {
-  margin-top: 30px;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.demo-title {
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.demo-info {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
 }
 
 .register-link {
