@@ -1,0 +1,45 @@
+{
+  "name": "live-tutorial-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
+    "lint:eslint": "eslint . --fix --cache",
+    "lint": "run-s lint:*",
+    "format": "prettier --write --experimental-cli src/"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "@supabase/supabase-js": "^2.86.2",
+    "axios": "^1.13.2",
+    "element-plus": "^2.12.0",
+    "html2pdf.js": "^0.12.1",
+    "pinia": "^3.0.4",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@prettier/plugin-oxc": "^0.0.5",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-oxlint": "~1.29.0",
+    "eslint-plugin-vue": "~10.5.1",
+    "globals": "^16.5.0",
+    "npm-run-all2": "^8.0.4",
+    "oxlint": "~1.29.0",
+    "prettier": "3.6.2",
+    "terser": "^5.44.1",
+    "vite": "npm:rolldown-vite@latest",
+    "vite-plugin-vue-devtools": "^8.0.5"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
