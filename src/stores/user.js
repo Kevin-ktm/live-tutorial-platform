@@ -8,23 +8,6 @@ export const useUserStore = defineStore(
     const profile = ref(null)
     const loading = ref(false)
 
-    // 模拟用户数据（用于演示）
-    const mockUser = {
-      id: 'mock-user-123',
-      email: 'demo@example.com',
-      username: '演示用户',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=demo',
-    }
-
-    const mockProfile = {
-      id: 'mock-user-123',
-      username: '演示用户',
-      avatar_url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=demo',
-      bio: '这是一个演示账号，用于体验直播学院功能',
-      level: 1,
-      learning_progress: {},
-    }
-
     // 初始化用户
     const initialize = async () => {
       loading.value = true
@@ -36,16 +19,9 @@ export const useUserStore = defineStore(
         if (storedUser && storedProfile) {
           user.value = JSON.parse(storedUser)
           profile.value = JSON.parse(storedProfile)
-        } else {
-          // 演示模式：自动登录演示账号
-          user.value = mockUser
-          profile.value = mockProfile
-          localStorage.setItem('user', JSON.stringify(mockUser))
-          localStorage.setItem('user_profile', JSON.stringify(mockProfile))
         }
       } catch (error) {
         console.error('用户初始化失败:', error)
-        // 失败时使用演示账号
         user.value = mockUser
         profile.value = mockProfile
       } finally {
@@ -83,14 +59,6 @@ export const useUserStore = defineStore(
           // 保存到本地存储
           localStorage.setItem('user', JSON.stringify(newUser))
           localStorage.setItem('user_profile', JSON.stringify(newProfile))
-
-          // 如果是演示账号，特殊处理
-          if (email === 'demo@example.com' && password === 'demo123') {
-            user.value = mockUser
-            profile.value = mockProfile
-            localStorage.setItem('user', JSON.stringify(mockUser))
-            localStorage.setItem('user_profile', JSON.stringify(mockProfile))
-          }
 
           return { data: { user: user.value }, error: null }
         } else {
